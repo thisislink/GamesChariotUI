@@ -5,7 +5,7 @@ function GamesChariotApi() {
     const [ getConfigs, setConfigs ] = useState([]);
 
     useEffect(() => {
-        const url = "http://localhost:8080/api"
+        const url = `${process.env.REACT_UI_URL}/api`
 
         const gamesList = () => {
             axios.get(url)
