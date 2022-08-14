@@ -5,7 +5,7 @@ function GamesChariot() {
     const [ getGamesList, setGamesList ] = useState([]);
 
     useEffect(() => {
-        const production  = `${process.env.REACT_APP_URL_PROD}`;
+        const production  = `${process.env.PORT}`;
         const development = `${process.env.REACT_APP_URL_DEV}`;
         const url = `${process.env.NODE_ENV ? production : development}`;
 
