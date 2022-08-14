@@ -5,7 +5,7 @@ function GamesChariotApi() {
     const [ getConfigs, setConfigs ] = useState([]);
 
     useEffect(() => {
-        const production  = `${process.env.PORT}`;
+        const production  = `${process.env.REACT_APP_URL_PROD}`;
         const development = `${process.env.REACT_APP_URL_DEV}`;
         const url = `${process.env.NODE_ENV ? production : development}/api`;
 
