@@ -7,7 +7,7 @@ function GamesChariot() {
     useEffect(() => {
         const production  = `${process.env.REACT_APP_PROD}`;
         const development = `${process.env.REACT_APP_DEV}`;
-        const url = `${process.env.PORT ? production : development}`;
+        const url = `${process.env.PORT ? production : development}/games`;
 
         const gamesList = () => {
             axios.get(url)
