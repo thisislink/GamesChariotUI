@@ -3,13 +3,12 @@ import {useState, useEffect } from "react";
 
 function GamesChariot() {
     const [ getMessage, setMessage ] = useState([]);
-    const [ getURL, setURL ] = useState("");
-
+    
     useEffect(() => {
         const production  = `${process.env.REACT_APP_PROD}`;
         const development = `${process.env.REACT_APP_DEV}`;
         const url = `${process.env.PORT ? production : development}`;
-        setURL(url+"/games");
+        
 
         const defaultMessage = () => {
             axios.get(url)
@@ -28,7 +27,7 @@ function GamesChariot() {
         <>
             <div>
                 {getMessage}
-                <p>Get the games list from <a href={getURL}>{getURL}</a></p>
+                <p>Get the games list from <a href="https://gameschariotui.herokuapp.com/games">https://gameschariotui.herokuapp.com/games</a></p>
             </div>
         </>
     );
