@@ -14,6 +14,8 @@ function App() {
                   </Route>
                   <Route path='/api' element={<GamesApi/>}>
                   </Route>
+                  <Route path='/games' element={<GamesChariot/>}>
+                  </Route>
               </Routes>
       </main>
     </div>

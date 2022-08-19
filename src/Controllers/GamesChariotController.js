@@ -8,23 +8,25 @@ function GamesChariot() {
         const production  = `${process.env.REACT_APP_PROD}`;
         const development = `${process.env.REACT_APP_DEV}`;
         const url = `${process.env.PORT ? production : development}/games`;
-
+    
         const gamesList = () => {
             axios.get(url)
-                .then( response => {
-                    setGamesList(response.data.content);
-                    console.log(response.data);
-                    console.log(response.data.content);
+                .then(response => {
+                    setGamesList(JSON.stringify(response.data.gamesList));
+                    console.log(JSON.stringify(response.data.gamesList));                   
                 })
                 .catch( error => console.log(`Error: ${error}`))
         }
-
+        
         gamesList();
     }, []);
 
+
     return(
         <>
-            <div>{getGamesList}</div>
+            <div>
+                {getGamesList}
+            </div>
         </>
     );
 }
