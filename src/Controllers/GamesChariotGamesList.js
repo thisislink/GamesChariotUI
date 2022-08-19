@@ -2,33 +2,30 @@ import axios from "axios";
 import {useState, useEffect } from "react";
 
 function GamesChariot() {
-    const [ getMessage, setMessage ] = useState([]);
-    const [ getURL, setURL ] = useState("");
+    const [ getGamesList, setGamesList ] = useState([]);
 
     useEffect(() => {
         const production  = `${process.env.REACT_APP_PROD}`;
         const development = `${process.env.REACT_APP_DEV}`;
-        const url = `${process.env.PORT ? production : development}`;
-        setURL(url+"/games");
-
-        const defaultMessage = () => {
+        const url = `${process.env.PORT ? production : development}/games`;
+    
+        const gamesList = () => {
             axios.get(url)
                 .then(response => {
-                    setMessage(response.data.message);
-                    console.log(response.data.message);                   
+                    setGamesList(JSON.stringify(response.data.gamesList));
+                    console.log(JSON.stringify(response.data.gamesList));                   
                 })
                 .catch( error => console.log(`Error: ${error}`))
         }
         
-        defaultMessage();
+        gamesList();
     }, []);
 
 
     return(
         <>
             <div>
-                {getMessage}
-                <p>Get the games list from <a href={getURL}>{getURL}</a></p>
+                {getGamesList}
             </div>
         </>
     );
