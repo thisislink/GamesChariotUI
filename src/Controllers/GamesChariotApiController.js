@@ -9,7 +9,7 @@ function GamesChariotApi() {
         const development = `${process.env.REACT_APP_DEV}`;
         const url = `${process.env.PORT ? production : development}/api`;
 
-        const gamesList = () => {
+        const apiConfiguration = () => {
             axios.get(url)
                 .then(response => {
                     const updatedConfigs = {
@@ -22,7 +22,7 @@ function GamesChariotApi() {
                 })
                 .catch( error => console.log(`Error: ${error}`))
         }
-        gamesList();
+        apiConfiguration();
     }, []);
 
     return(

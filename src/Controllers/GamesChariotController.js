@@ -14,6 +14,7 @@ function GamesChariot() {
                 .then( response => {
                     setGamesList(response.data.content);
                     console.log(response.data);
+                    console.log(response.data.content);
                 })
                 .catch( error => console.log(`Error: ${error}`))
         }
